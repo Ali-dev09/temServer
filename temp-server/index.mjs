@@ -130,7 +130,7 @@ app.post('/add/product', async (req, res) => {
 
 app.get('/api/products' , async (req, res) =>{
   try{
-    const products = await Product.find();
+    const products = await NewProduct.find();
     res.json(products);
   }catch(err){
     res.status(500).json({error: 'Server error', details: err.message})
