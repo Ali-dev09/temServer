@@ -29,7 +29,7 @@ async function connectDB() {
 connectDB();
 
 // Product Schema and Model
-const productSchema = new mongoose.Schema({
+const NewproductSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Product name is required'],
@@ -83,7 +83,7 @@ const productSchema = new mongoose.Schema({
   }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const NewProduct = mongoose.model('NewProduct', NewproductSchema);
 
 // Routes
 app.get('/', (req, res) => {
@@ -98,7 +98,7 @@ app.post('/add/product', async (req, res) => {
     }
 
     // Create new product
-    const product = new Product(req.body);
+    const product = new NewProduct(req.body);
     await product.save();
 
     // Send success response
